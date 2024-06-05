@@ -115,6 +115,46 @@ Discarded input sections
                 0x00000000       0xcc CMakeFiles/test.dir/main.cpp.obj
  .text._Z14large_con_stopv
                 0x00000000       0x48 CMakeFiles/test.dir/main.cpp.obj
+ .text._Z3mapiiiii
+                0x00000000       0x18 CMakeFiles/test.dir/main.cpp.obj
+ .text._Z19degree_to_set_pointi5servo
+                0x00000000       0x68 CMakeFiles/test.dir/main.cpp.obj
+ .text._Z12digger_intitv
+                0x00000000       0x88 CMakeFiles/test.dir/main.cpp.obj
+ .text._Z12picker_intitv
+                0x00000000       0x88 CMakeFiles/test.dir/main.cpp.obj
+ .text._Z19digger_set_positionh
+                0x00000000       0x80 CMakeFiles/test.dir/main.cpp.obj
+ .text._Z19picker_set_positionh
+                0x00000000       0x80 CMakeFiles/test.dir/main.cpp.obj
+ .data.picker_servo_freq_ms
+                0x00000000        0x4 CMakeFiles/test.dir/main.cpp.obj
+ .data.picker_src_freq
+                0x00000000        0x4 CMakeFiles/test.dir/main.cpp.obj
+ .bss.picker_end_duty_ms
+                0x00000000        0x2 CMakeFiles/test.dir/main.cpp.obj
+ .bss.picker_start_duty_ms
+                0x00000000        0x2 CMakeFiles/test.dir/main.cpp.obj
+ .data.digger_servo_freq_ms
+                0x00000000        0x4 CMakeFiles/test.dir/main.cpp.obj
+ .data.digger_src_freq
+                0x00000000        0x4 CMakeFiles/test.dir/main.cpp.obj
+ .bss.digger_end_duty_ms
+                0x00000000        0x2 CMakeFiles/test.dir/main.cpp.obj
+ .bss.digger_start_duty_ms
+                0x00000000        0x2 CMakeFiles/test.dir/main.cpp.obj
+ .bss.picker_servo_wrap_val
+                0x00000000        0x1 CMakeFiles/test.dir/main.cpp.obj
+ .bss.digger_servo_wrap_val
+                0x00000000        0x1 CMakeFiles/test.dir/main.cpp.obj
+ .bss.picker_servo_slice
+                0x00000000        0x1 CMakeFiles/test.dir/main.cpp.obj
+ .bss.digger_servo_slice
+                0x00000000        0x1 CMakeFiles/test.dir/main.cpp.obj
+ .data.picker_servo_pin
+                0x00000000        0x1 CMakeFiles/test.dir/main.cpp.obj
+ .data.digger_servo_pin
+                0x00000000        0x1 CMakeFiles/test.dir/main.cpp.obj
  .data.large_con_steps_per_rev
                 0x00000000        0x4 CMakeFiles/test.dir/main.cpp.obj
  .data.small_con_steps_per_rev
@@ -1199,9 +1239,9 @@ Discarded input sections
  .comment       0x00000000       0x27 CMakeFiles/test.dir/home/kedar/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
  .ARM.attributes
                 0x00000000       0x2c CMakeFiles/test.dir/home/kedar/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
- .text          0x00000000        0x0 /tmp/ccT1T56J.o
- .data          0x00000000        0x0 /tmp/ccT1T56J.o
- .bss           0x00000000        0x0 /tmp/ccT1T56J.o
+ .text          0x00000000        0x0 /tmp/cc3NSpm7.o
+ .data          0x00000000        0x0 /tmp/cc3NSpm7.o
+ .bss           0x00000000        0x0 /tmp/cc3NSpm7.o
  .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x00000000       0x18 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-calloc.o)
@@ -1612,7 +1652,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 /tmp/ccT1T56J.o
+ .boot2         0x10000000      0x100 /tmp/cc3NSpm7.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -1677,12 +1717,12 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x100002b8                _init
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .text*)
  .text          0x100002bc       0x98 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp/crtbegin.o
- .text._Z27x_axis_limit_switch_handlerv
-                0x10000354       0xd4 CMakeFiles/test.dir/main.cpp.obj
-                0x10000354                x_axis_limit_switch_handler()
  .text._Z27y_axis_limit_switch_handlerv
+                0x10000354       0xd4 CMakeFiles/test.dir/main.cpp.obj
+                0x10000354                y_axis_limit_switch_handler()
+ .text._Z27x_axis_limit_switch_handlerv
                 0x10000428       0xd4 CMakeFiles/test.dir/main.cpp.obj
-                0x10000428                y_axis_limit_switch_handler()
+                0x10000428                x_axis_limit_switch_handler()
  .text._Z11x_axis_initPFvvE
                 0x100004fc       0xc8 CMakeFiles/test.dir/main.cpp.obj
                 0x100004fc                x_axis_init(void (*)())
@@ -2346,10 +2386,10 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
 
 .rodata         0x10007870      0x710
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
- .rodata._Z27x_axis_limit_switch_handlerv.str1.4
+ .rodata._Z27y_axis_limit_switch_handlerv.str1.4
                 0x10007870      0x3af CMakeFiles/test.dir/main.cpp.obj
                                  0x21 (size before relaxing)
- .rodata._Z27y_axis_limit_switch_handlerv.str1.4
+ .rodata._Z27x_axis_limit_switch_handlerv.str1.4
                 0x10007c1f       0x15 CMakeFiles/test.dir/main.cpp.obj
  .rodata._Z11x_axis_initPFvvE.str1.4
                 0x10007c1f       0x67 CMakeFiles/test.dir/main.cpp.obj
@@ -2978,7 +3018,7 @@ LOAD CMakeFiles/test.dir/home/kedar/pico/pico-sdk/lib/tinyusb/src/portable/raspb
 LOAD CMakeFiles/test.dir/home/kedar/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
 LOAD CMakeFiles/test.dir/home/kedar/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 LOAD CMakeFiles/test.dir/home/kedar/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
-LOAD /tmp/ccT1T56J.o
+LOAD /tmp/cc3NSpm7.o
 LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -3092,7 +3132,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000776       0x2c CMakeFiles/test.dir/home/kedar/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .ARM.attributes
-                0x000007a2       0x22 /tmp/ccT1T56J.o
+                0x000007a2       0x22 /tmp/cc3NSpm7.o
  .ARM.attributes
                 0x000007c4       0x1e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes

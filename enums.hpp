@@ -20,4 +20,9 @@ enum Stepper_Status
   RUNNING,
 };
 
+enum servo {
+  DIGGER,
+  PICKER
+};
+
 #endif
