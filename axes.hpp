@@ -142,8 +142,8 @@ void x_axis_config()
     break;
   }
   x_axis_wrap_val = float(x_axis_clk_src) / float(x_axis_steps_per_sec) - 1;
-  pwm_set_wrap(x_axis_pulse_slice, x_axis_wrap_val);
   pwm_init(x_axis_pulse_slice, &x_pwm_config, false);
+  pwm_set_wrap(x_axis_pulse_slice, x_axis_wrap_val);
   printf("%d\n", x_axis_wrap_val);
   printf("PWM Configuration Complete\n");
 }
@@ -329,8 +329,8 @@ void y_axis_config()
     break;
   }
   y_axis_wrap_val = float(y_axis_clk_src) / float(y_axis_steps_per_sec) - 1;
-  pwm_set_wrap(y_axis_pulse_slice, y_axis_wrap_val);
   pwm_init(y_axis_pulse_slice, &y_pwm_config, false);
+  pwm_set_wrap(y_axis_pulse_slice, y_axis_wrap_val);
   printf("%d\n", y_axis_wrap_val);
   printf("PWM Configuration Complete\n");
 }
@@ -340,10 +340,10 @@ void y_axis_rotate(Rotation dir, uint steps)
   if (y_status == RUNNING)
     return;
   printf("Moving Y-Axis\n");
-  printf("taking %d steps in %s direction\n", steps, dir == CLK ? "clockwise" : "counter clockwise");
   y_status = RUNNING;
   y_axis_steps_to_take = steps;
   y_axis_current_rotation = dir;
+  printf("taking %d steps in %s direction\n", y_axis_steps_to_take, y_axis_current_rotation == CLK ? "clockwise" : "counter clockwise");
   if (dir == CLK)
   {
     gpio_put(y_axis_dir_pin, 0);

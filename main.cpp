@@ -31,7 +31,7 @@ int main()
   x_axis_config();
 
   sleep_ms(100);
-
+  y_axis_steps_per_sec = 6400*6;
   y_axis_init(pwm_handler);
   y_axis_config();
 
@@ -45,15 +45,17 @@ int main()
   large_con_init(pwm_handler);
   large_con_config();
 
-  sleep_ms(100);
-
-  x_axis_home();
   sleep_ms(1000);
-  y_axis_home();
-  sleep_ms(1000);
+  
+  y_axis_rotate(CLK, 6400*1000);
 
-  small_con_rotate(CLK,6400);
-  large_con_rotate(CLK,6400);
+  // x_axis_home();
+  // sleep_ms(1000);
+  // y_axis_home();
+  // sleep_ms(1000);
+
+  // small_con_rotate(CLK,6400);
+  // large_con_rotate(CLK,6400);
 
   while (1)
   {

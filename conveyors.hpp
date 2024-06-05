@@ -106,8 +106,8 @@ void small_con_config()
     break;
   }
   small_con_wrap_val = float(small_con_clk_src) / float(small_con_steps_per_sec) - 1;
-  pwm_set_wrap(small_con_pulse_slice, small_con_wrap_val);
   pwm_init(small_con_pulse_slice, &small_con_pwm_config, false);
+  pwm_set_wrap(small_con_pulse_slice, small_con_wrap_val);
   printf("%d\n", small_con_wrap_val);
   printf("PWM Configuration Complete\n");
 }
@@ -213,8 +213,8 @@ void large_con_config()
     break;
   }
   large_con_wrap_val = float(large_con_clk_src) / float(large_con_steps_per_sec) - 1;
-  pwm_set_wrap(large_con_pulse_slice, large_con_wrap_val);
   pwm_init(large_con_pulse_slice, &large_con_pwm_config, false);
+  pwm_set_wrap(large_con_pulse_slice, large_con_wrap_val);
   printf("%d\n", large_con_wrap_val);
   printf("PWM Configuration Complete\n");
 }
