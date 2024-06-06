@@ -116,7 +116,7 @@ void small_con_rotate(Rotation dir, uint steps)
 {
   if (small_con_status == RUNNING)
     return;
-  printf("Rotating Small Conveyor");
+  printf("Rotating Small Conveyor\n");
   printf("taking %d steps in %s direction\n", steps, dir == CLK ? "clockwise" : "counter clockwise");
   small_con_status = RUNNING;
   small_con_steps_to_take = steps;
@@ -223,7 +223,7 @@ void large_con_rotate(Rotation dir, uint steps)
 {
   if (large_con_status == RUNNING)
     return;
-  printf("Rotating Large Conveyor");
+  printf("Rotating Large Conveyor\n");
   printf("taking %d steps in %s direction\n", steps, dir == CLK ? "clockwise" : "counter clockwise");
   large_con_status = RUNNING;
   large_con_steps_to_take = steps;

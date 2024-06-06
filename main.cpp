@@ -4,9 +4,13 @@
 #include "axes.hpp"
 #include "conveyors.hpp"
 #include "servos.hpp"
+#include "tusb.h"
+#include <stdlib.h>
 
 #define digger_trig 16
 #define dropper_trig 17
+
+char serial_buf[1024];
 
 void trigger_handler(uint pin, uint32_t events) {}
 
@@ -70,10 +74,10 @@ int main()
   sleep_ms(50);
   // y_axis_rotate(CLK, 6400 * 1000);
 
-  x_axis_home();
-  sleep_ms(1000);
-  y_axis_home();
-  sleep_ms(1000);
+  // x_axis_home();
+  // sleep_ms(1000);
+  // y_axis_home();
+  // sleep_ms(1000);
 
   small_con_rotate(CLK, 6400);
   large_con_rotate(CLK, 6400);
@@ -92,8 +96,104 @@ int main()
   picker_set_position(0);
   sleep_ms(500);
 
+  while (!tud_cdc_connected())
+  {
+    sleep_ms(10);
+  }
+  printf("Ready! Enter code\nxa (-/+)steps\nya(-/+)steps\nsc (-/+)\nlc (-/+)\nds degree\nps degree\n");
+
   while (1)
   {
-    tight_loop_contents();
+    char string[1024];
+    gets(string);
+    char *data = strtok(string, "\n");
+    char *cmd = strtok(data, " ");
+    char *val = strtok(NULL, " ");
+    int value;
+    sscanf(val, "%d", &value);
+    int cmd_int;
+    if (strcmp(cmd, "xa") == 0)
+      cmd_int = 0;
+    else if (strcmp(cmd, "ya") == 0)
+      cmd_int = 1;
+    else if (strcmp(cmd, "sc") == 0)
+      cmd_int = 2;
+    else if (strcmp(cmd, "lc") == 0)
+      cmd_int = 3;
+    else if (strcmp(cmd, "ds") == 0)
+      cmd_int = 4;
+    else if (strcmp(cmd, "ps") == 0)
+      cmd_int = 5;
+    else
+      cmd_int = 100;
+
+    switch (cmd_int)
+    {
+    case 0:
+      if (value < 0)
+      {
+        x_axis_rotate(CLK, abs(value));
+      }
+      else if (value > 0)
+      {
+        x_axis_rotate(COUNTER_CLK, value);
+      }
+      while (x_status == RUNNING)
+      {
+        sleep_ms(10);
+      }
+      break;
+    case 1:
+      if (value < 0)
+      {
+        y_axis_rotate(CLK, abs(value));
+      }
+      else if (value > 0)
+      {
+        y_axis_rotate(COUNTER_CLK, value);
+      }
+      while (y_status == RUNNING)
+      {
+        sleep_ms(10);
+      }
+      break;
+    case 2:
+      if (value < 0)
+      {
+        small_con_rotate(CLK, abs(value));
+      }
+      else if (value > 0)
+      {
+        small_con_rotate(COUNTER_CLK, value);
+      }
+      while (small_con_status == RUNNING)
+      {
+        sleep_ms(10);
+      }
+      break;
+    case 3:
+      if (value < 0)
+      {
+        large_con_rotate(CLK, abs(value));
+      }
+      else if (value > 0)
+      {
+        large_con_rotate(COUNTER_CLK, value);
+      }
+      while (large_con_status == RUNNING)
+      {
+        sleep_ms(10);
+      }
+      break;
+    case 4:
+      digger_set_position(value);
+      break;
+    case 5:
+      picker_set_position(value);
+      break;
+    default:
+      break;
+    }
+    printf("done\n");
   }
 }

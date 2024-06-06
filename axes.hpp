@@ -152,7 +152,7 @@ void x_axis_rotate(Rotation dir, uint steps)
 {
   if (x_status == RUNNING)
     return;
-  printf("Moving X-Axis");
+  printf("Moving X-Axis\n");
   printf("taking %d steps in %s direction\n", steps, dir == CLK ? "clockwise" : "counter clockwise");
   x_status = RUNNING;
   x_axis_steps_to_take = steps;
